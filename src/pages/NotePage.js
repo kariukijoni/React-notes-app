@@ -7,7 +7,7 @@ import {ReactComponent as ArrowLeft} from '../assets/arrow-left.svg'
 
 
 
- const NotePage = () => {
+ const NotePage = (history) => {
     const {id} = useParams();
     // const note = notes.find(note => note.id === Number(id))
     let[note,setNote]=useState(null)
@@ -22,14 +22,30 @@ import {ReactComponent as ArrowLeft} from '../assets/arrow-left.svg'
         setNote(data)
     }
     
+    let updateNote=async()=>{
+        await fetch(`http://localhost:8000/notes/${id}`,{
+            method:'PUT',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({...note,'updated':new Date()})
+            
+        })
+    }
+    
+    let handleSubmit=()=>{
+        updateNote()
+        history.push('/')
+    }
+    
   return (
     <div className='note'>
         <div className='note-header'>
            <Link to='/'>
-                <ArrowLeft/>
+                <ArrowLeft onClick={handleSubmit} />
            </Link>
         </div>
-        <textarea name="" value={note?.body} id="" cols="30" rows="10"></textarea>
+        <textarea onChange={(e)=>setNote({...note,'body':e.target.value})} name="" value={note?.body} id="" cols="30" rows="10"></textarea>
     </div>
   )
 }
