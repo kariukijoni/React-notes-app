@@ -18,6 +18,7 @@ import {ReactComponent as ArrowLeft} from '../assets/arrow-left.svg'
     },[id])
     
     let getNote=async()=>{
+        if(id==='new') return
         let response=await fetch(`http://localhost:8000/notes/${id}`)
         let data=await response.json()
         setNote(data)
@@ -62,7 +63,7 @@ import {ReactComponent as ArrowLeft} from '../assets/arrow-left.svg'
         {
             deleteNote()
         }
-        else if(id==='new'){
+        else if(id!=='new'){
             updateNote() 
         }
         else if(id==='new' && note !=null)
@@ -81,7 +82,10 @@ import {ReactComponent as ArrowLeft} from '../assets/arrow-left.svg'
                         <ArrowLeft onClick={handleSubmit} />
                 </Link>
            </h3>
-           <button onClick={deleteNote}>Delete</button>
+           {id !=='new'? (<button onClick={deleteNote}>Delete</button>):(
+               <button onClick={handleSubmit}>Done</button>
+           )}
+           
         </div>
         <textarea onChange={(e)=>setNote({...note,'body':e.target.value})} name="" value={note?.body} id="" cols="30" rows="10"></textarea>
     </div>

@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 // import notes from '../assets/data'
 import ListItem from '../components/ListItem' 
+import AddButton from '../components/AddButton'
 
 function NotesListPage() {
   let[notes,setNotes] = useState([])
@@ -24,10 +25,13 @@ function NotesListPage() {
         <p className='notes-count'>{notes.length}</p>
       </div>
       <div className="notes-list">
-        {notes.map((note, index) => (
-            <ListItem key={index} note={note} />
-        ))}
+        {
+          notes.map((note, index) => (<ListItem key={index} note={note} />)
+        )
+          
+        }
       </div>
+      <AddButton/>
    </div>
   )
 }
