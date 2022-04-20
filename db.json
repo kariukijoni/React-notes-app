@@ -1,20 +1,16 @@
 {
   "notes": [
     {
-      "id": 1,
+      "id": 4,
       "body": "Todays Agenda\n\n- Walk Dog\n- Feed fish\n- Play basketball\n- Eat a salad",
-      "updated": "2021-07-14T13:49:02.078653Z",
+      "updated": "2022-04-20T15:59:57.538Z",
       "created": "2021-07-13T21:54:16.235392Z"
     },
     {
-      "id": 2,
-      "body": "Project finished",
-      "updated": "2022-04-20T15:06:44.124Z"
-    },
-    {
-      "id": 3,
-      "body": "Wash car",
-      "updated": "2022-04-20T15:06:57.822Z"
+      "id": 1,
+      "body": "Todays Agenda\n\n- Walk Dog\n- Feed fish\n- Play basketball\n- Eat a salad",
+      "updated": "2022-04-20T15:59:57.538Z",
+      "created": "2021-07-13T21:54:16.235392Z"
     }
   ]
 }
