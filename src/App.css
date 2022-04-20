@@ -208,6 +208,11 @@ a {
     fill: var(--color-main);
     width: 20px;
     margin-right: 8px;
+    color: white;
+}
+
+.white {
+    color: white;
 }
 
 .note-header button {
